@@ -12,7 +12,7 @@ A simple yet functional calculator application for Android.
 
 ## Screenshot
 
-![Screenshot](images/Screenshot_20251017_204154.png)
+<img src="images/Screenshot_20251017_204154.png" alt="Screenshot" height="300"/>
 
 ## How to Use
 
