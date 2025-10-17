@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_layout);
         initializeViews();
         setupClickListeners();
+        tvDisplay.setText("0");
     }
 
     private void initializeViews() {
