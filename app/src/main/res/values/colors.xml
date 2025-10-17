@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="calc_background">#1E1E1E</color>
+    <color name="calc_orange">#FF9800</color>
+    <color name="calc_light_grey">#A5A5A5</color>
+    <color name="calc_dark_grey">#333333</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+</resources>
