@@ -16,9 +16,7 @@ A simple yet functional calculator application for Android.
 
 ## How to Use
 
-1.  Clone the repository.
-2.  Open the project in Android Studio.
-3.  Build and run the application on an Android device or emulator.
+You can download the latest APK from the [GitHub Releases page](https://github.com/Metimol/Calculator/releases).
 
 ## Code Overview
 
