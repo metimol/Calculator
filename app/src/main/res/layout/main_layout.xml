@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E1E1E">
@@ -41,28 +42,32 @@
     <GridLayout
         android:id="@+id/button_grid"
         android:layout_width="match_parent"
-        android:layout_height="0dp" android:columnCount="4"
+        android:layout_height="0dp"
+        android:columnCount="4"
         android:padding="8dp"
         android:rowCount="5"
 
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="4:5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintDimensionRatio="4:5">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/btn_ac"
             style="@style/CalculatorButton.Special"
             android:text="AC" />
+
         <Button
             android:id="@+id/btn_brackets"
             style="@style/CalculatorButton.Special"
             android:text="( )" />
+
         <Button
             android:id="@+id/btn_percent"
             style="@style/CalculatorButton.Special"
             android:text="%" />
+
         <Button
             android:id="@+id/btn_divide"
             style="@style/CalculatorButton.Operator"
@@ -72,14 +77,17 @@
             android:id="@+id/btn_7"
             style="@style/CalculatorButton.Number"
             android:text="7" />
+
         <Button
             android:id="@+id/btn_8"
             style="@style/CalculatorButton.Number"
             android:text="8" />
+
         <Button
             android:id="@+id/btn_9"
             style="@style/CalculatorButton.Number"
             android:text="9" />
+
         <Button
             android:id="@+id/btn_multiply"
             style="@style/CalculatorButton.Operator"
@@ -89,14 +97,17 @@
             android:id="@+id/btn_4"
             style="@style/CalculatorButton.Number"
             android:text="4" />
+
         <Button
             android:id="@+id/btn_5"
             style="@style/CalculatorButton.Number"
             android:text="5" />
+
         <Button
             android:id="@+id/btn_6"
             style="@style/CalculatorButton.Number"
             android:text="6" />
+
         <Button
             android:id="@+id/btn_subtract"
             style="@style/CalculatorButton.Operator"
@@ -106,14 +117,17 @@
             android:id="@+id/btn_1"
             style="@style/CalculatorButton.Number"
             android:text="1" />
+
         <Button
             android:id="@+id/btn_2"
             style="@style/CalculatorButton.Number"
             android:text="2" />
+
         <Button
             android:id="@+id/btn_3"
             style="@style/CalculatorButton.Number"
             android:text="3" />
+
         <Button
             android:id="@+id/btn_add"
             style="@style/CalculatorButton.Operator"
@@ -123,10 +137,12 @@
             android:id="@+id/btn_0"
             style="@style/CalculatorButton.Number"
             android:text="0" />
+
         <Button
             android:id="@+id/btn_dot"
             style="@style/CalculatorButton.Number"
             android:text="." />
+
         <Button
             android:id="@+id/btn_equals"
             style="@style/CalculatorButton.Equals"

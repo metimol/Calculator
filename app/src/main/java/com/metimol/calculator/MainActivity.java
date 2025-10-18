@@ -1,11 +1,18 @@
 package com.metimol.calculator;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.HorizontalScrollView;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 import java.util.Arrays;
@@ -21,6 +28,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
+
+        var main_layout = findViewById(R.id.main_screen);
+        ViewCompat.setOnApplyWindowInsetsListener(main_layout, (view, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            view.setPadding(
+                    systemBars.left,
+                    0,
+                    systemBars.right,
+                    systemBars.bottom
+            );
+
+            return WindowInsetsCompat.CONSUMED;
+        });
+
         initializeViews();
         setupClickListeners();
         tvDisplay.setText("0");
@@ -54,6 +76,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void vibrate() {
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        if (vibrator != null && vibrator.hasVibrator()) {
+            VibrationEffect effect = VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE);
+            vibrator.vibrate(effect);
+        }
+    }
+
     private void scrollToRight() {
         horizontalScrollView.post(() -> {
             horizontalScrollView.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
@@ -73,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             tvDisplay.append(number);
         }
+
+        vibrate();
         scrollToRight();
     }
 
@@ -91,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        vibrate();
         scrollToRight();
     }
 
@@ -113,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
             tvDisplay.append(".");
         }
 
+        vibrate();
         scrollToRight();
     }
 
@@ -139,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        vibrate();
         scrollToRight();
     }
 
@@ -158,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
             displayError(e.toString());
         }
 
+        vibrate();
         scrollToLeft();
     }
 
@@ -187,10 +224,12 @@ public class MainActivity extends AppCompatActivity {
             displayError(e.toString());
         }
 
+        vibrate();
         scrollToLeft();
     }
 
     private void onClearClick() {
+        vibrate();
         tvDisplay.setText("0");
         scrollToRight();
     }
