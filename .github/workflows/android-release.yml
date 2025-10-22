@@ -38,7 +38,20 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assembleRelease
 
+      - name: Rename APK for Release
+        id: rename_apk
+        run: |
+          SOURCE_APK=$(find app/build/outputs/apk/release -type f -name "*.apk" | head -n 1)
+          TAG_NAME=${{ github.event.release.tag_name }}
+
+          NEW_NAME="Calculator-${TAG_NAME}.apk"
+          NEW_PATH="app/build/outputs/apk/release/${NEW_NAME}"
+
+          mv $SOURCE_APK $NEW_PATH
+
+          echo "apk_path=$NEW_PATH" >> $GITHUB_OUTPUT
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          files: app/build/outputs/apk/release/*.apk
+          files: ${{ steps.rename_apk.outputs.apk_path }}
